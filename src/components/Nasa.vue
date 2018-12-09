@@ -30,8 +30,9 @@ export default {
   },
   methods: {
     getResults (query) {
+      this.results = ''
       axios.get('https://images-api.nasa.gov/search?q=' + query + '&media_type=image').then(response => {
-        console.log(response.data.collection.items)
+        // console.log(response.data.collection.items)
         this.results = response.data.collection.items
       })
     }
@@ -63,19 +64,22 @@ export default {
     img
       width: 100px
       height: 80px
-    input
-      width: 250px
-      height: 30px
-      padding-left: 10px
-    button
-      padding: 0 20px
-      border: none
-      border-radius: 4px
-      height: 30px
-      cursor: pointer
-      transition: .4s
-      &:hover
-        background: white
+    form
+      @media screen and (max-width: 700px)
+        margin-top: 30px
+      input
+        width: 180px
+        height: 30px
+        padding-left: 10px
+      button
+        padding: 0 20px
+        border: none
+        border-radius: 4px
+        height: 30px
+        cursor: pointer
+        transition: .4s
+        &:hover
+          background: white
   .content
     width: 80%
     margin: 40px auto
