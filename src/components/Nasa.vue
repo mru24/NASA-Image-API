@@ -3,7 +3,10 @@
     <header>
       <img src="../assets/nasaLogo.png" alt="NASA logo">
       <h2>NASA Images</h2>
-      <input type="text" v-model="query" @change="getResults(query)" placeholder="Search">
+      <form @submit.prevent="getResults(query)">
+        <input type="text" v-model="query" placeholder="Search">
+        <button type="submit">Go</button>
+      </form>
     </header>
     <div class="content">
       <ul  v-if="results">
@@ -64,6 +67,15 @@ export default {
       width: 250px
       height: 30px
       padding-left: 10px
+    button
+      padding: 0 20px
+      border: none
+      border-radius: 4px
+      height: 30px
+      cursor: pointer
+      transition: .4s
+      &:hover
+        background: white
   .content
     width: 80%
     margin: 40px auto
